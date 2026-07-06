@@ -16,6 +16,7 @@ function Isade() {
   const [userName, setUserName] = useState("User");
   const [role, setRole] = useState("role");
   const [courses, setCourses] = useState([]);
+  const [ava, setAva] = useState('avatar');
 const nav = useNavigate()
 
 
@@ -34,6 +35,7 @@ nav("/")
       .then((data) => {
         if (data.name) setUserName(data.name);
         if (data.role) setRole(data.role);
+        if(data.avatar) setAva(data.avatar)
       })
 
       .catch(() => {
@@ -54,9 +56,14 @@ nav("/")
 
   return (
     <div className="w-full h-full flex flex-col gap-4 p-4">
-      <div>
+      <div className="flex justify-start gap-[16px] items-center">
+        <div className="">
+          <img className="w-[40px] h-[40px] rounded-full " src={ava} alt="" />
+        </div>
+        <div className="">
         <h3 className="text-[20px] font-bold">{userName}</h3>
         <p className="text-[14px] text-blue-500">{role}</p>
+        </div>
       </div>
 
       <nav className="flex flex-col gap-2">
