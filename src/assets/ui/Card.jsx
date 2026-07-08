@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-function Card({ img, title, ism, pro, link }) {
+function Card({ img, title, ism, pro, youtubeUrl, imgtit }) {
   return (
     <div className="w-[240px] bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm flex flex-col justify-between p-4">
       <div className="w-full h-[140px] rounded-xl overflow-hidden mb-4">
-        <img src={img} alt={title} className="w-full h-full object-cover" />
+        <img src={img} alt={imgtit} className="w-full h-full object-cover" />
       </div>
 
       <div className="flex flex-col flex-grow justify-between">
@@ -29,12 +28,12 @@ function Card({ img, title, ism, pro, link }) {
           </div>
         </div>
 
-        <Link
-          to={link}
+        <button
+          onClick={() => window.open(youtubeUrl, "_blank")}
           className="w-full bg-[#0056C6] text-white font-medium text-[14px] py-2.5 rounded-xl text-center block hover:bg-[#004399] transition-all"
         >
           Continue Learning ▷
-        </Link>
+        </button>
       </div>
     </div>
   );

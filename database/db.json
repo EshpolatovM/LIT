@@ -10,17 +10,23 @@
       "phone": "+998901234567",
       "country": "Uzbekistan",
       "bio": "Web developer qishloqasiga qiziqman",
-      "enrolledCourses": [1, 2, 3, 4],
+      "enrolledCourses": [
+        1,
+        2,
+        3
+      ],
       "joinDate": "2024-01-05",
       "coins": 1500,
       "dailyStreak": 15,
       "quizzesPassed": 24,
       "hoursLearned": 128,
-      "activeCoursesCount": 9,
+      "activeCoursesCount": 3,
       "completedCertificates": 15,
       "learningTimeThisMonth": 198,
       "globalRank": 852,
-      "globalRankTopPercent": 9
+      "globalRankTopPercent": 9,
+      "xp": 12450,
+      "level": 12
     },
     {
       "id": 2,
@@ -32,7 +38,11 @@
       "phone": "+998902345678",
       "country": "Uzbekistan",
       "bio": "Frontend developer",
-      "enrolledCourses": [1, 2, 3, 4],
+      "enrolledCourses": [
+        4,
+        5,
+        6
+      ],
       "joinDate": "2024-01-10",
       "coins": 2500,
       "dailyStreak": 8,
@@ -40,9 +50,11 @@
       "hoursLearned": 95,
       "activeCoursesCount": 2,
       "completedCertificates": 62,
-      "learningTimeThisMonth": 198,
+      "learningTimeThisMonth": 145,
       "globalRank": 352,
-      "globalRankTopPercent": 5
+      "globalRankTopPercent": 5,
+      "xp": 19840,
+      "level": 35
     },
     {
       "id": 3,
@@ -54,7 +66,11 @@
       "phone": "+998903456789",
       "country": "Uzbekistan",
       "bio": "Senior Full-Stack Developer",
-      "enrolledCourses": [1, 2, 3, 4],
+      "enrolledCourses": [
+        7,
+        8,
+        9
+      ],
       "joinDate": "2023-06-15",
       "coins": 5000,
       "dailyStreak": 30,
@@ -64,7 +80,9 @@
       "completedCertificates": 2,
       "learningTimeThisMonth": 8,
       "globalRank": 42,
-      "globalRankTopPercent": 5
+      "globalRankTopPercent": 5,
+      "xp": 31200,
+      "level": 50
     },
     {
       "id": 4,
@@ -76,7 +94,11 @@
       "phone": "+998904567890",
       "country": "Uzbekistan",
       "bio": "Backend dasturlashni o'rganyapman",
-      "enrolledCourses": [1, 2, 3, 4],
+      "enrolledCourses": [
+        10,
+        11,
+        12
+      ],
       "joinDate": "2024-01-20",
       "coins": 800,
       "dailyStreak": 4,
@@ -86,7 +108,9 @@
       "completedCertificates": 122,
       "learningTimeThisMonth": 328,
       "globalRank": 52,
-      "globalRankTopPercent": 9
+      "globalRankTopPercent": 9,
+      "xp": 24500,
+      "level": 42
     },
     {
       "id": 5,
@@ -98,7 +122,11 @@
       "phone": "+998905678901",
       "country": "Uzbekistan",
       "bio": "Mobile developer",
-      "enrolledCourses": [1, 2, 3, 4],
+      "enrolledCourses": [
+        13,
+        14,
+        15
+      ],
       "joinDate": "2024-02-01",
       "coins": 1200,
       "dailyStreak": 12,
@@ -108,7 +136,9 @@
       "completedCertificates": 92,
       "learningTimeThisMonth": 98,
       "globalRank": 0,
-      "globalRankTopPercent": 5
+      "globalRankTopPercent": 5,
+      "xp": 21900,
+      "level": 38
     }
   ],
   "courses": [
@@ -155,16 +185,166 @@
     },
     {
       "id": 4,
-      "title": "Global Digital Marketing Masterclass",
-      "description": "Raqamli marketing va ijtimoiy tarmoqlarda biznesni yuritish sirlari",
-      "instructor": "David Chen",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop",
-      "price": 95000,
-      "rating": 4.6,
-      "students": 970,
+      "title": "React Native Mobile Development",
+      "description": "React Native yordamida iOS va Android ilovalar yaratish",
+      "instructor": "Alex Johnson",
+      "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&auto=format&fit=crop",
+      "price": 180000,
+      "rating": 4.8,
+      "students": 920,
       "duration": "10 hafta",
       "level": "O'rta",
+      "lessons": 35,
+      "badge": "Popular"
+    },
+    {
+      "id": 5,
+      "title": "Python Backend Development",
+      "description": "Django va FastAPI bilan backend dasturlashni o'rganing",
+      "instructor": "Dr. Chen Wei",
+      "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&auto=format&fit=crop",
+      "price": 160000,
+      "rating": 4.6,
+      "students": 1100,
+      "duration": "14 hafta",
+      "level": "Mukammal",
+      "lessons": 45,
+      "badge": "Featured"
+    },
+    {
+      "id": 6,
+      "title": "Digital Marketing Mastery",
+      "description": "Raqamli marketing va ijtimoiy tarmoqlarda biznesni yuritish sirlari",
+      "instructor": "Emma Wilson",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop",
+      "price": 95000,
+      "rating": 4.5,
+      "students": 670,
+      "duration": "8 hafta",
+      "level": "Boshlang'ich",
       "lessons": 24
+    },
+    {
+      "id": 7,
+      "title": "Machine Learning Fundamentals",
+      "description": "Sun'iy intellekt va machine learning asoslarini o'rganing",
+      "instructor": "Prof. Alan Turing",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&auto=format&fit=crop",
+      "price": 220000,
+      "rating": 4.9,
+      "students": 1500,
+      "duration": "16 hafta",
+      "level": "Mukammal",
+      "lessons": 50,
+      "badge": "Top Rated"
+    },
+    {
+      "id": 8,
+      "title": "DevOps & Cloud Engineering",
+      "description": "AWS, Docker va Kubernetes bilan cloud infratuzilmani boshqarish",
+      "instructor": "James Miller",
+      "image": "https://images.unsplash.com/photo-1667372393119-c8f473882e8e?w=500&auto=format&fit=crop",
+      "price": 250000,
+      "rating": 4.7,
+      "students": 780,
+      "duration": "12 hafta",
+      "level": "Yuqori",
+      "lessons": 38
+    },
+    {
+      "id": 9,
+      "title": "Blockchain Development",
+      "description": "Ethereum va Solidity bilan smart contractlar yaratish",
+      "instructor": "Satoshi Nakamoto",
+      "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&auto=format&fit=crop",
+      "price": 300000,
+      "rating": 4.8,
+      "students": 450,
+      "duration": "10 hafta",
+      "level": "Mukammal",
+      "lessons": 30,
+      "badge": "New"
+    },
+    {
+      "id": 10,
+      "title": "Flutter Cross-Platform Apps",
+      "description": "Flutter bilan bir vaqtning o'zida iOS va Android ilovalar",
+      "instructor": "Google Team",
+      "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&auto=format&fit=crop",
+      "price": 140000,
+      "rating": 4.6,
+      "students": 890,
+      "duration": "9 hafta",
+      "level": "O'rta",
+      "lessons": 28
+    },
+    {
+      "id": 11,
+      "title": "Cybersecurity Essentials",
+      "description": "Xavfsizlik asoslari va ethical hacking texnikalari",
+      "instructor": "Kevin Mitnick",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&auto=format&fit=crop",
+      "price": 190000,
+      "rating": 4.9,
+      "students": 620,
+      "duration": "11 hafta",
+      "level": "Yuqori",
+      "lessons": 33,
+      "badge": "Featured"
+    },
+    {
+      "id": 12,
+      "title": "Game Development with Unity",
+      "description": "Unity va C# bilan 2D/3D o'yinlar yaratish",
+      "instructor": "John Carmack",
+      "image": "https://images.unsplash.com/photo-1556438064-2d7646166914?w=500&auto=format&fit=crop",
+      "price": 170000,
+      "rating": 4.7,
+      "students": 740,
+      "duration": "13 hafta",
+      "level": "O'rta",
+      "lessons": 36
+    },
+    {
+      "id": 13,
+      "title": "GraphQL API Design",
+      "description": "GraphQL bilan zamonaviy API loyihalash",
+      "instructor": "Lee Byron",
+      "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&auto=format&fit=crop",
+      "price": 130000,
+      "rating": 4.5,
+      "students": 560,
+      "duration": "7 hafta",
+      "level": "O'rta",
+      "lessons": 22
+    },
+    {
+      "id": 14,
+      "title": "Three.js 3D Web Graphics",
+      "description": "Brauzerda 3D grafika va animatsiyalar yaratish",
+      "instructor": "Ricardo Cabello",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop",
+      "price": 155000,
+      "rating": 4.8,
+      "students": 480,
+      "duration": "8 hafta",
+      "level": "Yuqori",
+      "lessons": 26,
+      "badge": "Creative"
+    },
+    {
+      "id": 15,
+      "title": "Rust Systems Programming",
+      "description": "Rust bilan yuqori samarali tizim dasturlari",
+      "instructor": "Graydon Hoare",
+      "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=500&auto=format&fit=crop",
+      "price": 210000,
+      "rating": 4.9,
+      "students": 390,
+      "duration": "15 hafta",
+      "level": "Mukammal",
+      "lessons": 42,
+      "badge": "Hardcore"
     }
   ],
   "enrollments": [
@@ -194,143 +374,99 @@
     },
     {
       "id": 4,
-      "userId": 1,
+      "userId": 2,
       "courseId": 4,
-      "progress": 55,
-      "startDate": "2024-02-15",
-      "completedLessons": 13
+      "progress": 45,
+      "startDate": "2024-01-20",
+      "completedLessons": 16
     },
-
     {
       "id": 5,
       "userId": 2,
-      "courseId": 1,
-      "progress": 75,
-      "startDate": "2024-01-15",
-      "completedLessons": 30
+      "courseId": 5,
+      "progress": 82,
+      "startDate": "2024-02-05",
+      "completedLessons": 37
     },
     {
       "id": 6,
       "userId": 2,
-      "courseId": 2,
-      "progress": 32,
-      "startDate": "2024-02-01",
-      "completedLessons": 10
+      "courseId": 6,
+      "progress": 15,
+      "startDate": "2024-03-01",
+      "completedLessons": 4
     },
     {
       "id": 7,
-      "userId": 2,
-      "courseId": 3,
-      "progress": 90,
-      "startDate": "2024-02-10",
-      "completedLessons": 18
+      "userId": 3,
+      "courseId": 7,
+      "progress": 95,
+      "startDate": "2023-07-01",
+      "completedLessons": 48
     },
     {
       "id": 8,
-      "userId": 2,
-      "courseId": 4,
-      "progress": 55,
-      "startDate": "2024-02-15",
-      "completedLessons": 13
+      "userId": 3,
+      "courseId": 8,
+      "progress": 60,
+      "startDate": "2023-09-15",
+      "completedLessons": 23
     },
-
     {
       "id": 9,
       "userId": 3,
-      "courseId": 1,
-      "progress": 75,
-      "startDate": "2024-01-15",
-      "completedLessons": 30
+      "courseId": 9,
+      "progress": 40,
+      "startDate": "2024-01-10",
+      "completedLessons": 12
     },
     {
       "id": 10,
-      "userId": 3,
-      "courseId": 2,
-      "progress": 32,
-      "startDate": "2024-02-01",
-      "completedLessons": 10
+      "userId": 4,
+      "courseId": 10,
+      "progress": 25,
+      "startDate": "2024-02-15",
+      "completedLessons": 7
     },
     {
       "id": 11,
-      "userId": 3,
-      "courseId": 3,
-      "progress": 90,
-      "startDate": "2024-02-10",
+      "userId": 4,
+      "courseId": 11,
+      "progress": 55,
+      "startDate": "2024-03-01",
       "completedLessons": 18
     },
     {
       "id": 12,
-      "userId": 3,
-      "courseId": 4,
-      "progress": 55,
-      "startDate": "2024-02-15",
-      "completedLessons": 13
+      "userId": 4,
+      "courseId": 12,
+      "progress": 10,
+      "startDate": "2024-03-20",
+      "completedLessons": 4
     },
-
     {
       "id": 13,
-      "userId": 4,
-      "courseId": 1,
-      "progress": 75,
-      "startDate": "2024-01-15",
-      "completedLessons": 30
+      "userId": 5,
+      "courseId": 13,
+      "progress": 68,
+      "startDate": "2024-02-10",
+      "completedLessons": 15
     },
     {
       "id": 14,
-      "userId": 4,
-      "courseId": 2,
-      "progress": 32,
-      "startDate": "2024-02-01",
-      "completedLessons": 10
+      "userId": 5,
+      "courseId": 14,
+      "progress": 35,
+      "startDate": "2024-03-05",
+      "completedLessons": 9
     },
     {
       "id": 15,
-      "userId": 4,
-      "courseId": 3,
-      "progress": 90,
-      "startDate": "2024-02-10",
-      "completedLessons": 18
-    },
-    {
-      "id": 16,
-      "userId": 4,
-      "courseId": 4,
-      "progress": 55,
-      "startDate": "2024-02-15",
-      "completedLessons": 13
-    },
-
-    {
-      "id": 17,
       "userId": 5,
-      "courseId": 1,
-      "progress": 75,
-      "startDate": "2024-01-15",
-      "completedLessons": 30
-    },
-    {
-      "id": 18,
-      "userId": 5,
-      "courseId": 2,
-      "progress": 32,
-      "startDate": "2024-02-01",
-      "completedLessons": 10
-    },
-    {
-      "id": 19,
-      "userId": 5,
-      "courseId": 3,
-      "progress": 90,
-      "startDate": "2024-02-10",
-      "completedLessons": 18
-    },
-    {
-      "id": 20,
-      "userId": 5,
-      "courseId": 4,
-      "progress": 55,
-      "startDate": "2024-02-15",
-      "completedLessons": 13
+      "courseId": 15,
+      "progress": 50,
+      "startDate": "2024-04-01",
+      "completedLessons": 21
     }
   ],
   "lessons": [

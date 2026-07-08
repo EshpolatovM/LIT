@@ -26,8 +26,8 @@ function Header() {
   }, [])
   return (
     <header className="">
-      <div className="w-full fix h-[64px] shadow-2xl flex items-center px-6 gap-6">
-        <div className="flex items-center gap-3">
+      <div className="w-full fix h-[64px] shadow-2xl flex items-center px-6 gap-6 animate-fade-in-up opacity-0">
+        <div className="flex items-center gap-3 animate-fade-in-up opacity-0" style={{animationDelay: '0.05s'}}>
           <img
             className="rounded-[50%] h-10 w-10 object-cover"
             src={logo}
@@ -37,19 +37,19 @@ function Header() {
         </div>
 
         <input
-          className="w-[314px] h-[44px] rounded-3xl bg-[#E5EEFF] focus:outline-none focus:ring-2 focus:ring-blue-500 px-4"
+          className="w-[314px] h-[44px] rounded-3xl bg-[#E5EEFF] focus:outline-none focus:ring-2 focus:ring-blue-500 px-4 transition-all duration-300"
           type="search"
           placeholder="Qidirish..."
         />
 
-        <div className="ml-auto flex items-center gap-4">
+        <div className="ml-auto flex items-center gap-4 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s'}}>
           <span className="text-sm text-gray-600">{userName}</span>
-         <img className="w-10 h-10 rounded-full" src={ava} alt="avatar" />
-          <p className="flex items-center gap-2 bg-yellow-100 px-3 py-1 rounded-lg">
+         <img className="w-10 h-10 rounded-full hover:ring-2 hover:ring-blue-400 transition-all duration-300" src={ava} alt="avatar" />
+          <p className="flex items-center gap-2 bg-yellow-100 px-3 py-1 rounded-lg hover:shadow-md transition-all duration-300">
             <HiCurrencyDollar className="text-yellow-600" />
             <span className="font-bold">{coins}</span>
           </p>
-          <p>
+          <p className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <IoMdNotificationsOutline />
           </p>
         </div>

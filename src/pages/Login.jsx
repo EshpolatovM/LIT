@@ -155,7 +155,7 @@ fetch(`http://localhost:3000/users?name=${name}`)
             </div>
 
             
-            <button className="w-full py-2 px-4 border-2 border-gray-300 hover:border-blue-500 text-gray-700 font-semibold rounded-lg transition duration-200 flex items-center justify-center gap-2">
+            <button  className="w-full py-2 cursor-not-allowed px-4 border-2 border-gray-300 hover:border-blue-500 text-gray-700 font-semibold rounded-lg transition duration-200 flex items-center justify-center gap-2">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
               </svg>

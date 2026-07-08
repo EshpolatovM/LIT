@@ -55,10 +55,10 @@ nav("/")
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col gap-4 p-4">
-      <div className="flex justify-start gap-[16px] items-center">
+    <div className="w-full h-full flex flex-col gap-4 p-4 animate-fade-in-left opacity-0">
+      <div className="flex justify-start gap-[16px] items-center animate-fade-in-left opacity-0" style={{animationDelay: '0.05s'}}>
         <div className="">
-          <img className="w-[40px] h-[40px] rounded-full " src={ava} alt="" />
+          <img className="w-[40px] h-[40px] rounded-full hover:ring-2 hover:ring-blue-400 transition-all duration-300" src={ava} alt="" />
         </div>
         <div className="">
         <h3 className="text-[20px] font-bold">{userName}</h3>
@@ -73,7 +73,7 @@ nav("/")
           className={({ isActive }) =>
             isActive
               ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center hover:bg-gray-200 rounded-[10px]"
+              : "p-2 text-gray-600 flex items-center hover:bg-gray-200 rounded-[10px] transition-all duration-200"
           }
         >
           <MdDashboard /> Dashboard
@@ -84,7 +84,7 @@ nav("/")
           className={({ isActive }) =>
             isActive
               ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px]"
+              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
           }
         >
           <BsMortarboardFill /> My Courses
@@ -95,7 +95,7 @@ nav("/")
           className={({ isActive }) =>
             isActive
               ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px]"
+              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
           }
         >
           <MdBarChart /> Leaderboard
@@ -106,7 +106,7 @@ nav("/")
           className={({ isActive }) =>
             isActive
               ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px]"
+              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
           }
         >
           <IoMdTrophy /> Achievements
@@ -117,7 +117,7 @@ nav("/")
           className={({ isActive }) =>
             isActive
               ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px]"
+              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
           }
         >
           <MdShoppingBag /> Shop
@@ -125,7 +125,7 @@ nav("/")
         <Link
         onClick={localD}
           to="/Login"
-          className="p-2 text-gray-600 flex items-center gap-1.5   hover:bg-red-200 hover:text-red-500 rounded-[10px]"
+          className="p-2 text-gray-600 flex items-center gap-1.5 hover:bg-red-200 hover:text-red-500 rounded-[10px] transition-all duration-200"
         >
           <IoLogOut /> Log Out
         </Link>
