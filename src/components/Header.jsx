@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.svg";
 import { HiCurrencyDollar } from "react-icons/hi2";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { useTheme } from "../context/ThemeContext";
 
 function Header() {
   const [coins, setCoins] = useState(0);
   const [userName, setUserName] = useState("User");
   const [ava, setAva] = useState("avatar");
+  const { themeName, toggleTheme } = useTheme();
+  const isDark = themeName === "dark";
+
   useEffect(() => {
     const userId = localStorage.getItem("currentUserId") || 1;
     fetch(`http://localhost:3000/users/${userId}`)
@@ -24,39 +29,70 @@ function Header() {
       });
   }, []);
   return (
-    <header className="sticky z-999 top-0 bg-white/80 backdrop-blur-md shadow-[0_1px_3px_rgba(0,0,0,0.06)] animate-fade-in-up opacity-0">
+    <header className={`sticky z-999 top-0 backdrop-blur-md border-b transition-all duration-300 animate-fade-in-up opacity-0 ${
+      isDark ? "bg-slate-900/85 border-slate-800/50" : "bg-white/80 border-gray-200/60 shadow-sm"
+    }`}>
       <div className="w-full h-[64px] flex items-center px-6 gap-6">
         <div
           className="flex items-center gap-3 animate-fade-in-up opacity-0"
           style={{ animationDelay: "0.05s" }}
         >
           <img
-            className="rounded-[50%]  h-10 w-10 object-cover"
+            className="rounded-lg h-9 w-9 object-cover"
             src={logo}
             alt="Logo"
           />
-          <p className="text-[11px] sm:text-sm font-extrabold tracking-wide leading-tight whitespace-nowrap animate-fade-in-gradient opacity-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.08)] bg-gradient-to-r from-blue-600 via-purple-500 to-emerald-500 bg-clip-text text-transparent bg-[length:200%_auto]">
+          <p className="text-[11px] sm:text-sm font-extrabold tracking-wide leading-tight whitespace-nowrap bg-gradient-to-r from-blue-600 via-purple-500 to-emerald-500 bg-clip-text text-transparent">
             LEARNING INNOVATION TECHNOLOGY
           </p>
         </div>
 
         <div
-          className="ml-auto flex items-center gap-4 animate-fade-in-up opacity-0"
+          className="ml-auto flex items-center gap-3 animate-fade-in-up opacity-0"
           style={{ animationDelay: "0.1s" }}
         >
-          <span className="text-sm text-gray-600">{userName}</span>
-          <img
-            className="w-10 h-10 rounded-full hover:ring-2 hover:ring-blue-400 transition-all duration-300"
-            src={ava}
-            alt="avatar"
-          />
-          <p className="flex items-center gap-2 bg-yellow-100 px-3 py-1 rounded-lg hover:shadow-md transition-all duration-300">
-            <HiCurrencyDollar className="text-yellow-600" />
-            <span className="font-bold">{coins}</span>
+          <button
+            onClick={toggleTheme}
+            className={`flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-300 hover:scale-105 ${
+              isDark
+                ? "bg-slate-800 hover:bg-slate-700 text-amber-400"
+                : "bg-gray-100 hover:bg-gray-200 text-gray-500"
+            }`}
+            title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {isDark ? (
+              <MdLightMode className="text-lg" />
+            ) : (
+              <MdDarkMode className="text-lg" />
+            )}
+          </button>
+
+          <p className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+            isDark ? "bg-amber-500/10 text-amber-400" : "bg-amber-50 text-amber-600"
+          }`}>
+            <HiCurrencyDollar className="text-base" />
+            <span>{coins}</span>
           </p>
-          <p className="hover:scale-110 transition-transform duration-300 cursor-pointer">
-            <IoMdNotificationsOutline />
-          </p>
+          <button className={`p-2 rounded-lg transition-all duration-300 hover:scale-105 ${
+            isDark ? "text-slate-400 hover:bg-slate-800 hover:text-slate-300" : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+          }`}>
+            <IoMdNotificationsOutline className="text-lg" />
+          </button>
+
+          <div className={`flex items-center gap-2.5 pl-3 border-l ${
+            isDark ? "border-slate-700" : "border-gray-200"
+          }`}>
+            <span className={`text-sm font-medium transition-colors duration-300 ${
+              isDark ? "text-slate-300" : "text-gray-700"
+            }`}>{userName}</span>
+            <img
+              className={`w-8 h-8 rounded-full object-cover ring-2 transition-all duration-300 hover:ring-blue-400 ${
+                isDark ? "ring-slate-700" : "ring-gray-200"
+              }`}
+              src={ava}
+              alt="avatar"
+            />
+          </div>
         </div>
       </div>
     </header>

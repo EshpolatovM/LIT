@@ -6,8 +6,12 @@ import Footer from "../components/Footer";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../pages/Loading";
+import { useTheme } from "../context/ThemeContext";
+
 function RootLayout() {
 const nav = useNavigate()
+const { themeName } = useTheme();
+const isDark = themeName === "dark";
   useEffect(() => {
     let userId = localStorage.getItem("currentUserId");
     let userName = localStorage.getItem("userName");
@@ -17,18 +21,26 @@ const nav = useNavigate()
   },[nav])
   return (
     <Suspense fallback={<Loading />}>
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50">
+    <div className={`flex flex-col min-h-screen transition-colors duration-300 ${
+      isDark ? "bg-[#0b1120]" : "bg-gradient-to-br from-blue-50 via-white to-emerald-50"
+    }`}>
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-blue-300/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute -bottom-40 -right-40 w-[700px] h-[700px] bg-emerald-300/20 rounded-full blur-3xl animate-float" style={{animationDelay: '-5s'}} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-300/15 rounded-full blur-3xl animate-float" style={{animationDelay: '-10s'}} />
-        <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-amber-200/20 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}} />
-        <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-pink-200/15 rounded-full blur-3xl animate-float" style={{animationDelay: '-7s'}} />
+        <div className={`absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-3xl animate-float ${
+          isDark ? "bg-blue-600/8" : "bg-blue-400/15"
+        }`} />
+        <div className={`absolute -bottom-40 -right-40 w-[700px] h-[700px] rounded-full blur-3xl animate-float ${
+          isDark ? "bg-emerald-600/8" : "bg-emerald-400/15"
+        }`} style={{animationDelay: '-5s'}} />
+        <div className={`absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full blur-3xl animate-float ${
+          isDark ? "bg-purple-600/6" : "bg-purple-400/10"
+        }`} style={{animationDelay: '-10s'}} />
       </div>
       <Header />
 
       <div className="flex flex-1 relative">
-        <aside className="w-64 overflow-y-auto border-r-2 border-gray-300 bg-white/50 backdrop-blur-sm">
+        <aside className={`w-64 overflow-y-auto border-r transition-colors duration-300 ${
+          isDark ? "border-slate-800/60 bg-slate-900/40 backdrop-blur-sm" : "border-gray-200 bg-white/60 backdrop-blur-sm"
+        }`}>
           <Isade />
         </aside>
 

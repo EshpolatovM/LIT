@@ -1,7 +1,6 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { MdBarChart } from "react-icons/md";
-import { GoTrophy } from "react-icons/go";
 import { MdDashboard } from "react-icons/md";
 import { IoMdTrophy } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -9,24 +8,22 @@ import { BsMortarboardFill } from "react-icons/bs";
 import { MdShoppingBag } from "react-icons/md";
 import { IoLogOut } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-
-
+import { useTheme } from "../context/ThemeContext";
 
 function Isade() {
   const [userName, setUserName] = useState("User");
   const [role, setRole] = useState("role");
-  const [courses, setCourses] = useState([]);
-  const [ava, setAva] = useState('avatar');
-const nav = useNavigate()
+  const [ava, setAva] = useState("avatar");
+  const nav = useNavigate();
+  const { themeName } = useTheme();
+  const isDark = themeName === "dark";
 
-
-const localD = (e) => {
-e.preventDefault()
-localStorage.removeItem("currentUserId")
-localStorage.removeItem("userName")
-nav("/")
-}
-
+  const localD = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("currentUserId");
+    localStorage.removeItem("userName");
+    nav("/");
+  };
 
   useEffect(() => {
     const userId = localStorage.getItem("currentUserId") || 1;
@@ -35,100 +32,80 @@ nav("/")
       .then((data) => {
         if (data.name) setUserName(data.name);
         if (data.role) setRole(data.role);
-        if(data.avatar) setAva(data.avatar)
+        if (data.avatar) setAva(data.avatar);
       })
-
       .catch(() => {
         setUserName("?");
         setRole("?");
       });
-
-    fetch(`http://localhost:3000/courses?userId=${userId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCourses(data);
-      })
-
-      .catch((err) => {
-        console.log("Error", err);
-      });
   }, []);
 
+  const navLinkClass = (isActive) =>
+    `px-3 py-2.5 flex items-center gap-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+      isActive
+        ? "bg-blue-500 text-white shadow-sm shadow-blue-500/20"
+        : isDark
+          ? "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+          : "text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+    }`;
+
   return (
-    <div className="w-full h-full flex flex-col gap-4 p-4 animate-fade-in-left opacity-0">
-      <div className="flex justify-start gap-[16px] items-center animate-fade-in-left opacity-0" style={{animationDelay: '0.05s'}}>
-        <div className="">
-          <img className="w-[40px] h-[40px] rounded-full hover:ring-2 hover:ring-blue-400 transition-all duration-300" src={ava} alt="" />
-        </div>
-        <div className="">
-        <h3 className="text-[20px] font-bold">{userName}</h3>
-        <p className="text-[14px] text-blue-500">{role}</p>
+    <div className="w-full fixed left-0 top-0 h-full flex flex-col gap-5 p-4 pt-6 animate-fade-in-left opacity-0">
+      <div
+        className="flex items-center gap-3 px-3 animate-fade-in-left opacity-0"
+        style={{ animationDelay: "0.05s" }}
+      >
+        <img
+          className="w-10 h-10 rounded-full ring-2 ring-slate-200 dark:ring-slate-700 object-cover"
+          src={ava}
+          alt=""
+        />
+        <div className="min-w-0">
+          <h3
+            className={`text-[15px] font-semibold leading-tight truncate transition-colors duration-300 ${
+              isDark ? "text-slate-100" : "text-slate-800"
+            }`}
+          >
+            {userName}
+          </h3>
+          <p className="text-[12px] font-medium text-blue-500 dark:text-blue-400 truncate">{role}</p>
         </div>
       </div>
 
-      <nav className="flex flex-col gap-2">
-        <NavLink
-          to="/dashboard"
-          end
-          className={({ isActive }) =>
-            isActive
-              ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center hover:bg-gray-200 rounded-[10px] transition-all duration-200"
-          }
-        >
-          <MdDashboard /> Dashboard
+      <nav className="flex flex-col gap-1 px-1">
+        <NavLink to="/dashboard" end className={({ isActive }) => navLinkClass(isActive)}>
+          <MdDashboard className="text-lg" /> Dashboard
         </NavLink>
 
-        <NavLink
-          to="/my-courses"
-          className={({ isActive }) =>
-            isActive
-              ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
-          }
-        >
-          <BsMortarboardFill /> My Courses
+        <NavLink to="/my-courses" className={({ isActive }) => navLinkClass(isActive)}>
+          <BsMortarboardFill className="text-lg" /> My Courses
         </NavLink>
 
-        <NavLink
-          to="/leaderboard"
-          className={({ isActive }) =>
-            isActive
-              ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
-          }
-        >
-          <MdBarChart /> Leaderboard
+        <NavLink to="/leaderboard" className={({ isActive }) => navLinkClass(isActive)}>
+          <MdBarChart className="text-lg" /> Leaderboard
         </NavLink>
 
-        <NavLink
-          to="/achievements"
-          className={({ isActive }) =>
-            isActive
-              ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
-          }
-        >
-          <IoMdTrophy /> Achievements
+        <NavLink to="/achievements" className={({ isActive }) => navLinkClass(isActive)}>
+          <IoMdTrophy className="text-lg" /> Achievements
         </NavLink>
 
-        <NavLink
-          to="/shop"
-          className={({ isActive }) =>
-            isActive
-              ? "p-2 bg-blue-500 flex items-center gap-1.5 text-white rounded-[10px] font-bold"
-              : "p-2 text-gray-600 flex items-center gap-1.5 hover:bg-gray-200 rounded-[10px] transition-all duration-200"
-          }
-        >
-          <MdShoppingBag /> Shop
+        <NavLink to="/shop" className={({ isActive }) => navLinkClass(isActive)}>
+          <MdShoppingBag className="text-lg" /> Shop
         </NavLink>
-        <Link
-        onClick={localD}
-          to="/Login"
-          className="p-2 text-gray-600 flex items-center gap-1.5 hover:bg-red-200 hover:text-red-500 rounded-[10px] transition-all duration-200"
-        >
-          <IoLogOut /> Log Out
-        </Link>
+
+        <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700/50">
+          <Link
+            onClick={localD}
+            to="/Login"
+            className={`px-3 py-2.5 flex items-center gap-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+              isDark
+                ? "text-slate-500 hover:bg-red-500/10 hover:text-red-400"
+                : "text-slate-500 hover:bg-red-50 hover:text-red-500"
+            }`}
+          >
+            <IoLogOut className="text-lg" /> Log Out
+          </Link>
+        </div>
       </nav>
     </div>
   );
