@@ -42,7 +42,7 @@ export default function Dashboard() {
         setUserData(userRes.data);
         setTimeout(() => setLoaded(true), 350);
       } catch (err) {
-        console.log("Ma'lumot yuklashda xatolik:", err);
+        console.log("Error loading data:", err);
         setTimeout(() => setLoaded(true), 350);
       }
     };
@@ -56,16 +56,16 @@ export default function Dashboard() {
     : null;
 
   return (
-    <div className="p-8 bg-gray-50 min-h-screen relative">
+    <div className="p-8 min-h-screen relative">
       
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-blue-300/15 rounded-full blur-3xl animate-float" />
         <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-emerald-300/15 rounded-full blur-3xl animate-float" style={{animationDelay: '-4s'}} />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-purple-300/10 rounded-full blur-3xl animate-float" style={{animationDelay: '-8s'}} />
       </div>
-      <h1 className="text-4xl font-bold mb-2 animate-fade-in-gradient opacity-0 bg-gradient-to-r from-blue-600 via-emerald-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto]">Xush Kelibsiz, {userName}!</h1>
+      <h1 className="text-4xl font-bold mb-2 animate-fade-in-gradient opacity-0 bg-gradient-to-r from-blue-600 via-emerald-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto]">Welcome, {userName}!</h1>
       <p className="text-gray-600 mb-12 animate-fade-in-up opacity-0" style={{animationDelay: '0.1s'}}>
-        O'quv rejangiz bo'yicha davom eting.
+        Build your future with LIT Academy.
       </p>
 
       
@@ -108,7 +108,7 @@ export default function Dashboard() {
           </div>
 
           <Link to="/my-courses" className="mt-8 w-full flex justify-center items-center py-3 border-2 border-[#0056C6] text-[#0056C6] font-semibold rounded-[12px] hover:bg-[#0056C6] hover:text-white transition-colors duration-200">
-            Barcha kurslarni ko'rish
+            View All Courses
           </Link>
         </div>
 
@@ -153,7 +153,7 @@ export default function Dashboard() {
 
               <div className="flex items-center gap-3 mt-6">
                 <Link to="/my-courses" className="flex-1 py-3.5 flex justify-center items-center bg-[#0056C6] text-white font-bold text-[15px] rounded-[12px] hover:bg-blue-700 transition-colors shadow-md shadow-blue-100">
-                  Kursga kirish
+                  Start Course
                 </Link>
 
                 <button className="p-3.5 border border-gray-200 hover:border-gray-300 rounded-[12px] text-gray-600 flex items-center justify-center transition-colors bg-gray-50/50">
@@ -166,7 +166,7 @@ export default function Dashboard() {
           </div>
         ) : (
           <div className="w-[653px] bg-white rounded-[16px] shadow-xl h-[380px] flex items-center justify-center border border-gray-100 text-gray-400 animate-fade-in-right opacity-0" style={{animationDelay: '0.1s'}}>
-            Kurs yuklanmoqda...
+            Loading course...
           </div>
         )}
       </div>

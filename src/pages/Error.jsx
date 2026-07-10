@@ -34,10 +34,10 @@ function Error() {
         {/* Text content */}
         <div className="mb-8 space-y-4">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
-            Sahifa topilmadi!
+            Page Not Found!
           </h1>
           <p className="text-lg text-gray-600 max-w-md mx-auto">
-            Afsuski, siz qidirgan sahifa topilmadi. URL manzilni tekshirib ko'ring yoki bosh sahifaga qaytib ko'ring.
+            Sorry, the page you are looking for was not found. Check the URL or go back to the home page.
           </p>
         </div>
 
@@ -53,8 +53,8 @@ function Error() {
               <span className="text-blue-600 text-sm truncate">{window.location.pathname}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-gray-600 font-semibold">Vaqt:</span>
-              <span className="text-gray-700">{new Date().toLocaleTimeString('uz-UZ')}</span>
+              <span className="text-gray-600 font-semibold">Time:</span>
+              <span className="text-gray-700">{new Date().toLocaleTimeString()}</span>
             </div>
           </div>
         </div>
@@ -65,13 +65,13 @@ function Error() {
             onClick={() => navigate("/dashboard")}
             className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition duration-200"
           >
-            Dashboard-ga qaytish
+            Return to Dashboard
           </button>
           <button
             onClick={() => navigate("/")}
             className="px-8 py-3 bg-white hover:bg-gray-50 text-blue-600 font-bold rounded-lg shadow-lg hover:shadow-xl border-2 border-blue-600 transition duration-200"
           >
-            Bosh sahifaga
+            Go to Home
           </button>
         </div>
 
@@ -84,7 +84,7 @@ function Error() {
 
         {/* Footer message */}
         <p className="text-gray-600 text-sm">
-          Agar muammo davom etsa, <span className="text-blue-600 font-semibold cursor-pointer hover:underline">support ga murojaat qiling</span>
+          If the problem persists, <span className="text-blue-600 font-semibold cursor-pointer hover:underline">please contact support</span>
         </p>
       </div>
     </div>

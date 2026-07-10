@@ -22,7 +22,7 @@ function MyCourses() {
         const storedId = localStorage.getItem("currentUserId");
 
         if (!storedId) {
-          console.warn("LocalStorage ichida foydalanuvchi ID topilmadi!");
+          console.warn("User ID not found in localStorage!");
           return;
         }
 
@@ -55,7 +55,7 @@ function MyCourses() {
           setGlobal(myData.globalRankTopPercent);
         }
       } catch (err) {
-        console.error("Xatolik:", err);
+        console.error("Error:", err);
       } finally {
         setLoading(false);
       }
@@ -66,17 +66,17 @@ function MyCourses() {
 
   if (loading) {
     return (
-      <div className="p-8 bg-gray-50 min-h-screen flex items-center justify-center">
-        <p className="text-gray-500">Yuklanmoqda...</p>
+      <div className="p-8 min-h-screen flex items-center justify-center">
+        <p className="text-gray-500">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="p-8 bg-gray-50 min-h-screen">
+    <div className="p-8 min-h-screen">
       <div className="mb-8">
-        <h1 className="text-[32px] font-bold text-[#0B1C30] animate-fade-in-up opacity-0">
-          Mening kurslarim
+        <h1 className="text-4xl font-bold mb-2 animate-fade-in-gradient opacity-0 bg-gradient-to-r from-blue-600 via-emerald-500 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto]">
+          My Courses
         </h1>
         <p className="text-[16px] text-[#718096] animate-fade-in-up opacity-0" style={{animationDelay: '0.1s'}}>
           Keep track of your academic journey
@@ -155,7 +155,7 @@ function MyCourses() {
           ))
         ) : (
           <p className="text-gray-400 text-center py-10 w-full animate-fade-in-up opacity-0">
-            Hozircha kurslarga yozilmagansiz
+            You haven't enrolled in any courses yet
           </p>
         )}
       </div>
